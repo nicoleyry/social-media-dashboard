@@ -39,7 +39,18 @@ body {
     color: var(--subtext-color);
   }
 }
+.changes {
+  font-size: 12px;
+  font-weight: bold;
+}
+.positive {
+  color: $lime-green-color;
+}
+.negative {
+  color: $bright-red-color;
+}
 .category {
+  margin-top: -13%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
@@ -78,6 +89,8 @@ body {
       font-size: 12px;
       align-self: center;
       margin-bottom: 20px;
+      color: var(--subtext-color);
+      font-weight: bold;
     }
     .number {
       font-size: 50px;
@@ -91,15 +104,89 @@ body {
       font-size: 12px;
       margin-top: 0px;
     }
-    .changes {
-      font-size: 12px;
+  }
+}
+.overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto repeat((2, 1fr));
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-areas: 
+    "heading heading heading heading" 
+    "block1-1 block1-2 block1-3 block1-4"
+    "block2-1 block2-2 block2-3 block2-4";
+  text-align: center;
+  margin-bottom: 50px;
+  .heading-block {
+    width: 100%;
+    grid-area: heading;
+    text-align: left;
+    .heading {
+      color: var(--subtext-color);
+      font-size: 22px;
       font-weight: bold;
     }
-    .positive {
-      color: $lime-green-color;
+  }
+  .block {
+    padding: 20px 30px;
+    background-color: var(--card-bg-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat((2, 1fr));
+    border-radius: 5px;
+    align-items: center;
+    justify-items: center;
+    &-facebook {
+      &-views {
+        grid-area: block1-1;
+      }
+      &-likes {
+        grid-area: block1-2;
+      }
     }
-    .negative {
-      color: $bright-red-color;
+    &-instagram {
+      &-likes {
+        grid-area: block1-3;
+      }
+      &-views {
+        grid-area: block1-4;
+      }
+    }
+    &-twitter {
+      &-retweets {
+        grid-area: block2-1;
+      }
+      &-likes {
+        grid-area: block2-2;
+      }
+    }
+    &-youtube {
+      &-likes {
+        grid-area: block2-3;
+      }
+      &-views {
+        grid-area: block2-4;
+      }
+    }
+    .title {
+      font-size: 14px;
+      color: var(--subtext-color);
+      font-weight: bold;
+      justify-self: start;
+    }
+    img {
+      justify-self: end;
+    }
+    .number {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 5px 0;
+      justify-self: start;
+    }
+    .changes {
+      justify-self: end;
+      align-self: end;
     }
   }
 }
