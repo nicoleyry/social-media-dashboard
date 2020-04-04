@@ -1,0 +1,126 @@
+html {
+  --bg-color: hsl(0, 0%, 100%);
+  --pattern-bg-color: hsl(225, 100%, 98%);
+  --card-bg-color: hsl(227, 47%, 96%);
+  --text-color: hsl(230, 17%, 14%);
+  --subtext-color: hsl(228, 12%, 44%);
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  padding: 30px 150px;
+}
+
+.pattern {
+  height: 250px;
+  background-color: var(--pattern-bg-color);
+}
+
+.pattern p {
+  margin: 0 20px;
+}
+
+.pattern .title {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.pattern .subtitle {
+  color: var(--subtext-color);
+}
+
+.category {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-column-gap: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.category .block {
+  padding: 20px;
+  background-color: var(--card-bg-color);
+  display: -ms-grid;
+  display: grid;
+  border-radius: 5px;
+}
+
+.category .block-facebook {
+  border-top: 5px solid deepskyblue;
+}
+
+.category .block-twitter {
+  border-top: 5px solid #1ca0f2;
+}
+
+.category .block-instagram {
+  overflow: hidden;
+}
+
+.category .block-instagram::before {
+  background: -webkit-gradient(linear, left top, right top, from(#fdc468), to(#df4996));
+  background: linear-gradient(90deg, #fdc468 0%, #df4996 100%);
+  content: "";
+  width: 120%;
+  height: 5px;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.category .block-youtube {
+  border-top: 5px solid #c4032a;
+}
+
+.category .block .heading {
+  font-size: 12px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-bottom: 20px;
+}
+
+.category .block .heading img {
+  vertical-align: middle;
+}
+
+.category .block .number {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 5px auto;
+}
+
+.category .block .followers {
+  color: var(--subtext-color);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+.category .block .changes {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.category .block .positive {
+  color: #1db489;
+}
+
+.category .block .negative {
+  color: #dc414c;
+}
+/*# sourceMappingURL=style.css.map */
