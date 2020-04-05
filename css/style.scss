@@ -151,26 +151,36 @@ body {
     background-color: var(--card-bg-color);
     display: grid;
     border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
     &-facebook {
-      border-top: 5px solid $facebook-color;
+      &::before {
+        background: $facebook-color;
+      }
     }
     &-twitter {
-      border-top: 5px solid $twitter-color;
+      &::before {
+        background: $twitter-color;
+      }
     }
     &-instagram {
       &::before {
         background: $instagram-color;
-        content: "";
-        width: 118%;
-        height: 5px;
-        margin-top: -20px;
-        margin-left: -20px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
       }
     }
     &-youtube {
-      border-top: 5px solid $youtube-color;
+      &::before {
+        background: $youtube-color;
+      }
     }
     .heading {
       img {
