@@ -179,18 +179,16 @@ body {
   border-top: 5px solid #1ca0f2;
 }
 
-.category .block-instagram {
-  overflow: hidden;
-}
-
 .category .block-instagram::before {
   background: -webkit-gradient(linear, left top, right top, from(#fdc468), to(#df4996));
   background: linear-gradient(90deg, #fdc468 0%, #df4996 100%);
   content: "";
-  width: 120%;
+  width: 118%;
   height: 5px;
   margin-top: -20px;
   margin-left: -20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .category .block-youtube {

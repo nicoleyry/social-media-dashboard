@@ -158,14 +158,15 @@ body {
       border-top: 5px solid $twitter-color;
     }
     &-instagram {
-      overflow: hidden;
       &::before {
         background: $instagram-color;
         content: "";
-        width: 120%;
+        width: 118%;
         height: 5px;
         margin-top: -20px;
         margin-left: -20px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
       }
     }
     &-youtube {
