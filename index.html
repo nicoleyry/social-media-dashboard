@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
@@ -19,9 +19,14 @@
 </head>
 <body>
   <div class="pattern">
-    <div class="container">
+    <div class="container pattern-container">
       <p class="title">Social Media Dashboard</p>
       <p class="subtitle">Total Followers: 23,004</p>
+      <p class="switch-text">Dark Mode</p>
+      <label class="switch">
+        <input type="checkbox" name="theme">
+        <span class="slider round"></span>
+      </label>
     </div>
   </div>
   <div class="container">
@@ -125,73 +130,23 @@
       </div>
     </div>
   </div>
-
-  <!-- Social Media Dashboard
-  Total Followers: 23,004
-
-  Dark Mode
-
-  
-
-  @nathanf
-  1987
-  Followers
-  12 Today
-
-  @nathanf
-  1044
-  Followers
-  99 Today
-
-  @realnathanf
-  11k
-  Followers
-  1099 Today
-
-  Nathan F.
-  8239
-  Subscribers
-  144 Today
-
-
-
-  Overview - Today
-
-  Page Views
-  87
-  3%
-
-  Likes
-  52
-  2%
-
-  Likes
-  5462
-  2257%
-
-  Profile Views
-  52k
-  1375%
-
-  Retweets
-  117
-  303%
-
-  Likes
-  507
-  553%
-
-  Likes
-  107
-  19%
-
-  Total Views
-  1407
-  12% -->
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Nicole</a>.
   </div>
+  <script>
+    var checkbox = document.querySelector('input[name=theme]');
+
+    checkbox.addEventListener('change', function() {
+      if(this.checked) {
+        console.log("change to dark");
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        console.log("change to light");
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })
+  </script>
 </body>
 </html>

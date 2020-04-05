@@ -2,8 +2,10 @@ $lime-green-color: hsl(163, 72%, 41%);
 $bright-red-color: hsl(356, 69%, 56%);
 $facebook-color: hsl(195, 100%, 50%);
 $twitter-color: hsl(203, 89%, 53%);
-$instagram-color: linear-gradient(hsl(37, 97%, 70%) to hsl(329, 70%, 58%));
+$instagram-color: linear-gradient(90deg, hsl(37, 97%, 70%) 0%, hsl(329, 70%, 58%) 100%);
 $youtube-color: hsl(348, 97%, 39%);
+$toggle-light: hsl(230, 22%, 74%);
+$toggle-dark: linear-gradient(90deg, hsl(210, 78%, 56%) 0%, hsl(146, 68%, 55%) 100%);
 
 html{
   --bg-color: hsl(0, 0%, 100%);
@@ -11,6 +13,13 @@ html{
   --card-bg-color: hsl(227, 47%, 96%);
   --text-color: hsl(230, 17%, 14%);
   --subtext-color: hsl(228, 12%, 44%);
+}
+html[data-theme="dark"] {
+  --bg-color: hsl(230, 17%, 14%);
+  --pattern-bg-color: hsl(232, 19%, 15%);
+  --card-bg-color: hsl(228, 28%, 20%);
+  --text-color: hsl(0, 0%, 100%);
+  --subtext-color: hsl(228, 34%, 66%);
 }
 body {
   height: 100vh;
@@ -28,17 +37,97 @@ body {
 .pattern {
   height: 250px;
   background-color: var(--pattern-bg-color);
+  .pattern-container { 
+    display: grid;
+    grid-template-columns: 17fr 2fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "title switch-txt  switch" 
+    "subtitle subtitle subtitle";
+  }
   p {
     margin: 0 20px;
   }
   .title {
     font-size: 26px;
     font-weight: bold;
+    grid-area: title;
   }
   .subtitle {
     color: var(--subtext-color);
+    grid-area: subtitle;
+  }
+  .switch-text {
+    color: var(--subtext-color);
+    grid-area: switch-txt;
+    margin-right: 0;
+    justify-self: end;
+  }
+
+  
+  // Toggle Switch
+  /* The switch - the box around the slider */
+  .switch {
+    // display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    grid-area: switch;
+    justify-self: end;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $toggle-light;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 22px;
+    bottom: 2px;
+    background-color: var(--pattern-bg-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background: $toggle-dark;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 20px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
   }
 }
+
 .changes {
   font-size: 12px;
   font-weight: bold;
@@ -71,12 +160,12 @@ body {
     &-instagram {
       overflow: hidden;
       &::before {
-        background: linear-gradient(90deg, hsl(37, 97%, 70%) 0%, hsl(329, 70%, 58%) 100%);
+        background: $instagram-color;
         content: "";
         width: 120%;
-      height: 5px;
-      margin-top: -20px;
-      margin-left: -20px;
+        height: 5px;
+        margin-top: -20px;
+        margin-left: -20px;
       }
     }
     &-youtube {
@@ -84,7 +173,7 @@ body {
     }
     .heading {
       img {
-        vertical-align:middle;
+        vertical-align: middle;
       }
       font-size: 12px;
       align-self: center;
@@ -113,9 +202,9 @@ body {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   grid-template-areas: 
-    "heading heading heading heading" 
-    "block1-1 block1-2 block1-3 block1-4"
-    "block2-1 block2-2 block2-3 block2-4";
+  "heading heading heading heading" 
+  "block1-1 block1-2 block1-3 block1-4"
+  "block2-1 block2-2 block2-3 block2-4";
   text-align: center;
   margin-bottom: 50px;
   .heading-block {
