@@ -33,20 +33,34 @@ body {
 }
 .container {
   padding: 30px 150px;
+  @media (max-width: 1050px) {
+    padding: 30px;
+  }
 }
 .pattern {
   height: 250px;
   background-color: var(--pattern-bg-color);
   .pattern-container { 
     display: grid;
-    grid-template-columns: 17fr 2fr 1fr;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 16fr 2fr 1fr;
+    grid-template-rows: repeat(3, auto);
     grid-template-areas: 
     "title switch-txt  switch" 
-    "subtitle subtitle subtitle";
+    "subtitle subtitle subtitle"
+    "devided-line devided-line devided-line";
+    @media (max-width: 500px) {
+      grid-template-columns: 5fr 2fr 13fr;
+      grid-template-rows: repeat(3, 1fr) 1fr;
+      grid-template-areas: 
+      "title title title"
+      "subtitle subtitle subtitle"
+      "devided-line devided-line devided-line"
+      "switch-txt switch switch";
+      align-items: center;
+    }
   }
   p {
-    margin: 0 20px;
+    margin: 0;
   }
   .title {
     font-size: 26px;
@@ -57,11 +71,25 @@ body {
     color: var(--subtext-color);
     grid-area: subtitle;
   }
+  .devided-line {
+    grid-area: devided-line;
+    color: var(--subtext-color);
+    opacity: .5;
+    text-align: center;
+    width: 100%;
+    display: none;
+    @media (max-width: 500px) {
+      display: inline;
+    }
+  }
   .switch-text {
     color: var(--subtext-color);
     grid-area: switch-txt;
     margin-right: 0;
     justify-self: end;
+    @media (max-width: 500px) {
+      justify-self: start;
+    }
   }
 
   
@@ -146,6 +174,17 @@ body {
   grid-column-gap: 20px;
   text-align: center;
   margin-bottom: 50px;
+  @media (max-width: 800px) {
+    margin-top: -20%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 20px;
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-row-gap: 20px;
+  }
   .block {
     padding: 20px;
     background-color: var(--card-bg-color);
@@ -218,6 +257,32 @@ body {
   "block2-1 block2-2 block2-3 block2-4";
   text-align: center;
   margin-bottom: 50px;
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr repeat(4, auto);
+    grid-row-gap: 20px;
+    grid-template-areas: 
+    "heading heading"
+    "block1-1 block1-2"
+    "block1-3 block1-4"
+    "block2-1 block2-2"
+    "block2-3 block2-4";
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr repeat(8, auto);
+    grid-row-gap: 20px;
+    grid-template-areas: 
+    "heading"
+    "block1-1"
+    "block1-2"
+    "block1-3"
+    "block1-4"
+    "block2-1"
+    "block2-2"
+    "block2-3"
+    "block2-4";
+  }
   .heading-block {
     width: 100%;
     grid-area: heading;
