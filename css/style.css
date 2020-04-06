@@ -195,7 +195,7 @@ body {
 }
 
 .category {
-  margin-top: -13%;
+  margin-top: -20vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
